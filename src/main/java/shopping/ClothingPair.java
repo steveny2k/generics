@@ -14,4 +14,14 @@ public class ClothingPair<E extends Sized & Colored /*, String*/> extends Pair<E
         return left.getSize() == right.getSize()
                 && left.getColor() == right.getColor();
     }
+
+    public <F extends Colored> boolean matches(F c) {
+        return c.getColor().equals(getLeft().getColor());
+    }
+
+    public static <E extends Sized & Colored> boolean match(E left, E right) {
+        return left.getColor().equals(right.getColor()) &&
+                left.getSize() == right.getSize();
+    }
+
 }
